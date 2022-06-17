@@ -1,4 +1,4 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 type ShopItemProps = {
@@ -12,14 +12,12 @@ export const ShopItem: React.FC<ShopItemProps> = ({ title, description, imageUrl
     return (
         <Grid item xs={12} sm={6} md={4}>
             <Card sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-                <CardActionArea>
-                    <CardMedia
-                        component="img"
-                        height="250"
-                        image={imageUrl}
-                        alt={title}
-                    />
-                </CardActionArea>
+                <CardMedia
+                    component="img"
+                    height="250"
+                    image={imageUrl}
+                    alt={title}
+                />
                 <CardContent sx={{ flex: '1' }}>
                     <Typography gutterBottom variant="h5" component="div">
                         {title}

@@ -1,24 +1,19 @@
 import { MyPage } from "../MyPage/MyPage";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from "@mui/material";
-
-const theme = createTheme({
-    palette: {
-        background: {
-            default: "#ECF6FC"
-        },
-        primary: {
-            main: "#fbd200"
-        }
-    }
-});
-
+import { ThemeContext, ThemeContextProvider } from "../Theme/ThemeContext";
 
 export const App = () => {
     return (
-        <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <MyPage />
-        </ThemeProvider>
+        <ThemeContextProvider>
+            <ThemeContext.Consumer>
+                {({ theme }) => (
+                    <ThemeProvider theme={theme}>
+                        <CssBaseline />
+                        <MyPage />
+                    </ThemeProvider>
+                )}
+            </ThemeContext.Consumer>
+        </ThemeContextProvider>
     );
 };
