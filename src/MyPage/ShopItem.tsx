@@ -1,6 +1,3 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-
 type ShopItemProps = {
     title: string;
     imageUrl: string;
@@ -10,27 +7,16 @@ type ShopItemProps = {
 
 export const ShopItem: React.FC<ShopItemProps> = ({ title, description, imageUrl, price }) => {
     return (
-        <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-                <CardMedia
-                    component="img"
-                    height="250"
-                    image={imageUrl}
-                    alt={title}
-                />
-                <CardContent sx={{ flex: '1' }}>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        {description}
-                    </Typography>
-                </CardContent>
-                <CardActions sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span>€ {price}</span>
-                    <Button size="small" variant="contained" endIcon={<AddShoppingCartIcon />}>Buy</Button>
-                </CardActions>
-            </Card>
-        </Grid>
+        <div className="grid__item">
+            <div className="shopItem">
+                <img className="shopItem__image" src={imageUrl} alt={title} />
+                <h2 className="shopItem__title">{title}</h2>
+                <p className="shopItem__description">{description}</p>
+                <div className="shopItem__actions">
+                    <span className="shopItem__price">€ {price}</span>
+                    <button className="shopItem__button">Buy</button>
+                </div>
+            </div>
+        </div>
     );
 };
